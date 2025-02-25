@@ -1,0 +1,77 @@
+body {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.sidebar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20%;
+    height: 100%;
+    background-color: #181818;
+    padding: 20px;
+}
+
+.main-content {
+    width: 50%;
+    text-align: center;
+}
+
+.song-info {
+    background-color: #b00020;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.lyrics {
+    margin-top: 20px;
+}
+
+.now-playing {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 20%;
+    height: 100%;
+    background-color: #282828;
+    padding: 20px;
+    text-align: center;
+}
+
+.now-playing img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.player-controls {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #181818;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+button {
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: darkgreen;
+}
