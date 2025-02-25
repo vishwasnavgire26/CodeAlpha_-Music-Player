@@ -1,0 +1,50 @@
+document.addEventListener("DOMContentLoaded", function () {
+    const playButton = document.querySelector(".song-info button");
+    const playerControls = document.querySelector(".player-controls");
+    const playControl = playerControls.querySelector("button:nth-child(2)");
+    const prevControl = playerControls.querySelector("button:nth-child(1)");
+    const nextControl = playerControls.querySelector("button:nth-child(3)");
+    const timeDisplay = playerControls.querySelector("p:first-child");
+    const durationDisplay = playerControls.querySelector("p:last-child");
+    let isPlaying = false;
+    let currentTime = 0;
+    let duration = 272; // Assume 4:32 duration in seconds
+
+    function togglePlay() {
+        isPlaying = !isPlaying;
+        playControl.textContent = isPlaying ? "⏸" : "▶";
+        playButton.textContent = isPlaying ? "⏸ Pause" : "▶ Play";
+    }
+
+    function updateTimeDisplay() {
+        let minutes = Math.floor(currentTime / 60);
+        let seconds = currentTime % 60;
+        timeDisplay.textContent = `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+    }
+
+    function updateDurationDisplay() {
+        let minutes = Math.floor(duration / 60);
+        let seconds = duration % 60;
+        durationDisplay.textContent = `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+    }
+
+    function skipForward() {
+        currentTime = Math.min(currentTime + 10, duration);
+        updateTimeDisplay();
+    }
+
+    function skipBackward() {
+        currentTime = Math.max(currentTime - 10, 0);
+        updateTimeDisplay();
+    }
+
+    playButton.addEventListener("click", togglePlay);
+    playControl.addEventListener("click", togglePlay);
+    nextControl.addEventListener("click", skipForward);
+    prevControl.addEventListener("click", skipBackward);
+    
+    updateTimeDisplay();
+    updateDurationDisplay();
+
+    console.log("Spotify Clone Script Loaded");
+});
